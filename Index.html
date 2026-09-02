@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menos Gritos, Más Calma | Transformación Total</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #DC2626;
+            --secondary: #F87171;
+            --accent: #FCA5A5;
+            --bg: #1A0000;
+            --text: #FDF2F2;
+            --text-dim: #D1D5DB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(252, 165, 165, 0.1);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Subheadline */
+        .subheadline {
+            background: rgba(220, 38, 38, 0.05);
+            text-align: center;
+            border-top: 1px solid var(--primary);
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .subheadline h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        /* Problema */
+        .problema {
+            background: linear-gradient(to bottom, #1A0000, #2D0000);
+        }
+
+        .problema-content {
+            max-width: 700px;
+        }
+
+        .highlight-text {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* Solucion */
+        .solucion {
+            text-align: center;
+        }
+
+        /* Beneficios */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Modulos */
+        .modulo-card {
+            margin-bottom: 30px;
+            padding: 30px;
+            border: 1px solid rgba(252, 165, 165, 0.2);
+        }
+
+        .modulo-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .bonus-tag {
+            background: gold;
+            color: black;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Comparacion */
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .comp-col h3 {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comp-list {
+            list-style: none;
+        }
+
+        .comp-list li {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .faq-item h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* Garantia */
+        .garantia {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Oferta */
+        .oferta-box {
+            background: white;
+            color: black;
+            padding: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .oferta-box h2 { color: #000; font-size: 2.5rem; }
+        .price { font-size: 4rem; font-weight: 900; margin: 20px 0; color: var(--primary); }
+        .price span { font-size: 1.5rem; vertical-align: middle; }
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 22px 45px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .cta-btn:hover {
+            background: #b91c1c;
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        /* CTA Final */
+        .cta-final {
+            text-align: center;
+            background: var(--bg);
+            padding-bottom: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+            section { padding: 60px 0; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container fade-in">
+            <span class="badge">Transformación Total</span>
+            <h1>Dejá de sobrevivir el día. Volvé a sentirte vos.</h1>
+            <p>Una guía práctica de 21 días para padres agotados que quieren recuperar energía, ordenar su mente y construir hábitos que puedan sostener en la vida real.</p>
+            <a href="https://go.hotmart.com/B107433254D?dp=1" target="_blank" rel="noopener noreferrer" class="cta-btn">Quiero recuperar mi calma</a>
+        </div>
+    </section>
+
+    <!-- SUBHEADLINE -->
+    <section class="subheadline">
+        <div class="container">
+            <h2>No necesitás más fuerza de voluntad. Necesitás un sistema.</h2>
+            <p>Transformación Total te acompaña durante 21 días con ejercicios simples, estrategias de descanso, organización mental, nutrición, movimiento y herramientas para manejar mejor los momentos de estrés.</p>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="problema">
+        <div class="container">
+            <div class="problema-content">
+                <h2 style="margin-bottom: 30px;">¿Sentís que estás agotado incluso antes de empezar el día?</h2>
+                <p>Dormís poco. Tenés mil cosas en la cabeza. Tus hijos necesitan de vos constantemente y muchas veces sentís que <span class="highlight-text">no queda energía para cuidarte.</span></p>
+                <br>
+                <p>Intentás tener paciencia, pero llega un momento en el que explotás. Después aparece la culpa. Y al día siguiente, el ciclo vuelve a empezar.</p>
+                <br>
+                <p><span class="highlight-text">No significa que seas un mal padre o una mala madre.</span> Muchas veces significa que llevás demasiado tiempo funcionando al límite, con un sistema nervioso inflamado por el cortisol.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCION -->
+    <section class="solucion">
+        <div class="container">
+            <h2 style="margin-bottom: 25px;">Una guía creada para ayudarte a recuperar el control, un día a la vez.</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px;">Transformación Total convierte 21 días en un proceso práctico para ordenar tu mente, mejorar tus hábitos y aprender a reconocer las señales de agotamiento antes de llegar al límite.</p>
+            <p class="highlight-text">No buscamos una vida perfecta. Buscamos que tengas herramientas que funcionen incluso en los días difíciles.</p>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Lo que vas a lograr</h2>
+            <div class="beneficios-grid">
+                <div class="benefit-item">✓ Reducí la carga mental y dejá de intentar recordar todo.</div>
+                <div class="benefit-item">✓ Aprendé estrategias simples para manejar momentos de estrés.</div>
+                <div class="benefit-item">✓ Mejorá tus hábitos de descanso y recuperación.</div>
+                <div class="benefit-item">✓ Organizá tu alimentación de manera práctica.</div>
+                <div class="benefit-item">✓ Incorporá movimiento sin necesitar horas de gimnasio.</div>
+                <div class="benefit-item">✓ Creá pequeños espacios de calma dentro de tu hogar.</div>
+                <div class="benefit-item">✓ Aprendé a detectar las señales de agotamiento antes de explotar.</div>
+                <div class="benefit-item">✓ Construí un sistema de hábitos sostenible.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULOS -->
+    <section class="modulos">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">Contenido del Programa</h2>
+            
+            <div class="modulo-card">
+                <h3>CAPÍTULO 1 — LA BIOLOGÍA DEL GRITO</h3>
+                <p>Entendé qué ocurre en tu cuerpo cuando el estrés y el cansancio se acumulan y por qué tu reacción física es involuntaria.</p>
+            </div>
+
+            <div class="modulo-card">
+                <h3>CAPÍTULO 2 — SISTEMA NERVIOSO Y NUTRICIÓN</h3>
+                <p>Hábitos, alimentación y recuperación celular para acompañar tu bienestar desde adentro.</p>
+            </div>
+
+            <div class="modulo-card">
+                <h3>CAPÍTULO 3 — SUEÑO REPARADOR BAJO FUEGO</h3>
+                <p>Estrategias realistas para descansar mejor incluso cuando tenés una rutina familiar caótica y niños pequeños.</p>
+            </div>
+
+            <div class="modulo-card">
+                <h3>CAPÍTULO 4 — BIOHACKING DEL HOGAR</h3>
+                <p>Herramientas tácticas para reducir la carga mental y crear pequeños santuarios de calma.</p>
+            </div>
+
+            <div class="modulo-card">
+                <h3>CAPÍTULO 5 — PLAN DE ACCIÓN DE 21 DÍAS</h3>
+                <p>Una hoja de ruta diaria diseñada para pasar de la teoría a la acción sin abrumarte.</p>
+            </div>
+
+            <div class="modulo-card" style="border-style: dashed; border-color: gold;">
+                <h3><span class="bonus-tag">BONUS EXCLUSIVO</span> Tracker de hábitos y bienestar</h3>
+                <p>Herramienta digital para registrar tu progreso, detectar patrones de irritabilidad y celebrar tus avances.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARACION -->
+    <section class="comparacion">
+        <div class="container">
+            <div class="comparison-table">
+                <div class="comp-col">
+                    <h3 style="color: #666;">ANTES</h3>
+                    <ul class="comp-list">
+                        <li>❌ Vivís reaccionando a todo.</li>
+                        <li>❌ Tenés la cabeza llena.</li>
+                        <li>❌ Te cuesta encontrar tiempo para vos.</li>
+                        <li>❌ El cansancio afecta tu paciencia.</li>
+                        <li>❌ Empezás hábitos y los abandonás.</li>
+                        <li>❌ Sentís que necesitás cambiar toda tu vida.</li>
+                    </ul>
+                </div>
+                <div class="comp-col">
+                    <h3 style="color: var(--secondary);">DESPUÉS</h3>
+                    <ul class="comp-list">
+                        <li>✓ Tenés un sistema simple para organizarte.</li>
+                        <li>✓ Sabés cómo descargar tu carga mental.</li>
+                        <li>✓ Incorporás pequeñas pausas durante el día.</li>
+                        <li>✓ Protegés mejor tus momentos de recuperación.</li>
+                        <li>✓ Tenés un plan concreto de 21 días.</li>
+                        <li>✓ Avanzás incluso si el día no es perfecto.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <h4>¿QUÉ ES TRANSFORMACIÓN TOTAL?</h4>
+                <p>Es una guía digital práctica de 21 días enfocada en hábitos, descanso, recuperación y organización mental para padres con rutinas exigentes.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>¿ES UN PRODUCTO FÍSICO?</h4>
+                <p>No. Es un producto digital en formato PDF de descarga inmediata.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>¿CUÁNTO TIEMPO NECESITO AL DÍA?</h4>
+                <p>La propuesta está diseñada para adaptarse a personas con poco tiempo. Cada día requiere entre 5 a 10 minutos de lectura y acciones integrables a tu rutina.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>¿NECESITO COMPRAR SUPLEMENTOS?</h4>
+                <p>No. Los suplementos no son obligatorios. La guía prioriza hábitos, alimentación, descanso y movimiento, aunque sugiere opciones de apoyo biológico.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>¿LOS RESULTADOS ESTÁN GARANTIZADOS?</h4>
+                <p>Cada situación es diferente. La guía proporciona las herramientas educativas; el resultado depende de la implementación constante de los hábitos sugeridos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GARANTIA -->
+    <section class="garantia">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">TU COMPRA ESTÁ PROTEGIDA</h2>
+            <p style="max-width: 600px; margin: 0 auto;">Queremos que puedas acceder a Transformación Total con tranquilidad. Si después de adquirir la guía considerás que no es para vos, podrás solicitar un reembolso sin vueltas ni complicaciones.</p>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="oferta">
+        <div class="container">
+            <div class="oferta-box">
+                <span class="badge">Acceso Inmediato</span>
+                <h2>EMPEZÁ TU TRANSFORMACIÓN HOY</h2>
+                <p>Guía práctica de 21 días para padres agotados</p>
+                <div class="price"><span>$</span>6<span> USD</span></div>
+                <ul style="list-style: none; text-align: left; max-width: 300px; margin: 0 auto 30px;">
+                    <li>✓ 5 capítulos completos</li>
+                    <li>✓ Plan de acción de 21 días</li>
+                    <li>✓ Ejercicios prácticos</li>
+                    <li>✓ Tracker de bienestar</li>
+                </ul>
+                <a href="https://go.hotmart.com/B107433254D?dp=1" target="_blank" rel="noopener noreferrer" class="cta-btn" style="width: 100%;">QUIERO EMPEZAR AHORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="container">
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--text-dim);">No necesitás esperar a estar completamente agotado para empezar a cuidarte.</p>
+            <h2 style="margin-bottom: 40px;">21 días. Un paso a la vez. Una versión más consciente y recuperada de vos.</h2>
+            <a href="https://go.hotmart.com/B107433254D?dp=1" target="_blank" rel="noopener noreferrer" class="cta-btn">QUIERO EMPEZAR MI TRANSFORMACIÓN</a>
+        </div>
+    </section>
+
+</body>
+</html>
